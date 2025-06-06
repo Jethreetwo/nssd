@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not So Socially Dead</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="120" height="40" fill="#007bff"/>
+                    <text x="60" y="26" text-anchor="middle" font-size="20" fill="white">NSSD</text>
+                </svg>
+            </div>
+            <h1>Not So Socially Dead</h1>
+        </header>
+        <form id="application-form">
+            <label>
+                Full Name
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                UCSD Email
+                <input type="email" name="email" pattern=".+@ucsd.edu" placeholder="name@ucsd.edu" required>
+            </label>
+            <label>
+                Referred By (optional)
+                <input type="text" name="referral">
+            </label>
+            <div class="availability">
+                <p>Weekly Availability</p>
+                <div id="calendar"></div>
+            </div>
+            <fieldset class="activities">
+                <legend>Interested Activities</legend>
+                <label><input type="checkbox" name="activities" value="Game Nights"> Game Nights</label>
+                <label><input type="checkbox" name="activities" value="Hiking Trips"> Hiking Trips</label>
+                <label><input type="checkbox" name="activities" value="Study Groups"> Study Groups</label>
+                <label><input type="checkbox" name="activities" value="Movie Screenings"> Movie Screenings</label>
+                <label><input type="checkbox" name="activities" value="Beach Outings"> Beach Outings</label>
+                <label><input type="checkbox" name="activities" value="Campus Tours"> Campus Tours</label>
+                <label><input type="checkbox" name="activities" value="Sports Events"> Sports Events</label>
+                <label><input type="checkbox" name="activities" value="Workshops"> Workshops</label>
+            </fieldset>
+            <button type="submit">Submit</button>
+            <div id="status"></div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

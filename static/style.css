@@ -47,6 +47,7 @@ input[type="text"], input[type="email"] {
 #calendar td {
     cursor: pointer;
     height: 30px;
+    user-select: none;
 }
 #calendar td.selected {
     background: #007bff;

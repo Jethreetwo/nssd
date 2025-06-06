@@ -1,6 +1,9 @@
 const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const times = Array.from({length:14}, (_,i)=>i+8); // 8am-21pm
 
+let isDragging = false;
+let dragSelect = false;
+
 function formatTime(hour){
     const ampm = hour < 12 ? 'am' : 'pm';
     const h = hour % 12 === 0 ? 12 : hour % 12;
@@ -28,13 +31,27 @@ function createCalendar(){
             const cell=document.createElement('td');
             cell.dataset.day=d;
             cell.dataset.time=t;
-            cell.addEventListener('click',()=>cell.classList.toggle('selected'));
+
+            cell.addEventListener('mousedown',e=>{
+                e.preventDefault();
+                isDragging = true;
+                dragSelect = !cell.classList.contains('selected');
+                cell.classList.toggle('selected', dragSelect);
+            });
+
+            cell.addEventListener('mouseover',()=>{
+                if(isDragging){
+                    cell.classList.toggle('selected', dragSelect);
+                }
+            });
+
             row.appendChild(cell);
         });
         table.appendChild(row);
     });
 
     cal.appendChild(table);
+    document.addEventListener('mouseup',()=>{isDragging=false;});
 }
 
 function getAvailability(){
